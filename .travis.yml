@@ -2,14 +2,14 @@ env:
  - ZMQ="git://github.com/zeromq/zeromq3-x.git -b v3.2.2"
  
 before_install:
- - sudo apt-get install uuid-dev
+ - sudo apt-get install uuid-dev -y
  - git clone --depth 1 $ZMQ zmqlib
  - cd zmqlib
  - ./autogen.sh
  - ./configure
  - make
- - sudo make install
- - sudo /sbin/ldconfig
+ - sudo make install -y 
+ - sudo /sbin/ldconfig -y
  - cd ..
  - npm install -g grunt-cli
  - npm install
@@ -17,5 +17,5 @@ language: node_js
 
 node_js:
  - "0.8"
- - "0.10"
+ 
 script: "grunt travis"
